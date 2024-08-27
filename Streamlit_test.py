@@ -24,7 +24,7 @@ with open('style.css') as f:
 
 # Logo - Titre
 image = "https://i.goopics.net/an3xxk.png"
-image_2 = "https://etudestech.com/ecole/le-wagon/"
+image_2 = "https://d26jy9fbi4q9wx.cloudfront.net/assets/logo-ae2beeecce25d711f577b08deb9adfc6c02b673ed106b8d6c3da0f1721d9da33.svg"
 container = st.container()
 container.markdown(
     f'''
