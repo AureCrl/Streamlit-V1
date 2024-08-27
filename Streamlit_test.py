@@ -57,7 +57,7 @@ with col1:
 # Critere 2
 with col2:
      critere_2 = st.selectbox(
-       "f",
+       "",
        ("Email", "Home phone", "Mobile phone"),
        index=None,
        placeholder="Choix",
