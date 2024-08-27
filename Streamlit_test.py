@@ -28,23 +28,7 @@ container.markdown(
     ''',
     unsafe_allow_html=True
 )
-
-# Logo
-#image = "https://i.goopics.net/an3xxk.png"
-#container = st.container()
-#container.markdown(
- #       f'<div style="display: flex; justify-content: flex-start; align-items: flex-start; margin-top: 0px; margin-bot: 0px;">'
- #       f'<img src="{image}" style="width: 150;">'
- #       f'</div>',
- #       unsafe_allow_html=True
- #   )
-# Titre
-#st.markdown(
-#    '<h1 style="text-align: flex-start; margin-top: 0px; color: #113f60;">La résidence secondaire à prix accessible !</h1>',
-#    unsafe_allow_html=True
-#)
-#st.markdown(" ")
-# Position et couleur du titre
+# La GROSSE BARRE
 st.markdown(
  """
     <div style="height: 4px; background-color: #113f60;width: 100%; margin-top: 10px;"></div>
@@ -59,21 +43,24 @@ Critere_4 = False
 Critere_5 = False
 Critere_6 = False
 
+# Création des colonnes pour les selectbox
+col1, col2 = st.columns([1, 1])
 
 # Critere 1
-critere_1 = st.selectbox(
-     "How would you like to be contacted?",
-    ("Email", "Home phone", "Mobile phone"),
- index=None,
-    placeholder="Choix",
+with col1:
+     critere_1 = st.selectbox(
+       "Critère 1",
+       ("Email", "Home phone", "Mobile phone"),
+       index=None,
+       placeholder="Choix",
 )
 # Critere 2
-critere_2 = st.selectbox(
-     "How would you like to be contacted?",
-    ("Email", "Home phone", "Mobile phone"),
- index=None,
-    placeholder="Choix",
-)
+with col2:
+     critere_2 = st.selectbox(
+       "Critère 2",
+       ("Email", "Home phone", "Mobile phone"),
+       index=None,
+       placeholder="Choix",
 
 
 
