@@ -111,26 +111,26 @@ df_geo = pd.merge(geodata, top_10, left_on='code', right_on='department_code', h
 df_geo = df_geo.drop(['code', 'nom'], axis=1)
 
 # Création d'une map "choropleth", elle affichera les 10 départements selectionnés.
-        fig = px.choropleth_mapbox(df_geo, 
-                                geojson=df_geo.geometry, 
-                                locations=df_geo.index,  
-                                mapbox_style="carto-positron", 
-                                hover_name='department_name',
-                                color= "colorank",  
-                                color_discrete_map=color_dict, 
-                                center={ "lat": 46.8, "lon": 1.8}, 
-                                custom_data=['department_name', 'geographie'], 
-                                zoom=4.2, 
-                                opacity=0.9) 
+       fig = px.choropleth_mapbox(df_geo, 
+                               geojson=df_geo.geometry, 
+                               locations=df_geo.index,  
+                               mapbox_style="carto-positron", 
+                               hover_name='department_name',
+                               color= "colorank",  
+                               color_discrete_map=color_dict, 
+                               center={ "lat": 46.8, "lon": 1.8}, 
+                               custom_data=['department_name', 'geographie'], 
+                               zoom=4.2, 
+                               opacity=0.9) 
                                 
 
-        fig.update_traces(
-        hovertemplate=
-            "<b>%{customdata[0]}</b><br>Relief: %{customdata[1]}"
-        )
+       fig.update_traces(
+       hovertemplate=
+           "<b>%{customdata[0]}</b><br>Relief: %{customdata[1]}"
+       )
 
-        fig.update_layout(margin={"r": 0, "t": 10, "l": 0, "b": 0}, showlegend=False, legend_itemwidth=35, width=650)
-        col1.plotly_chart(fig, use_container_width=True)
+       fig.update_layout(margin={"r": 0, "t": 10, "l": 0, "b": 0}, showlegend=False, legend_itemwidth=35, width=650)
+       col1.plotly_chart(fig, use_container_width=True)
  
 
 
