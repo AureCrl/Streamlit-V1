@@ -49,7 +49,7 @@ col1, col2 = st.columns([1, 1])
 # Critere 1
 with col1:
      critere_1 = st.selectbox(
-       "Critere 1",
+       "",
        ("Email", "Home phone", "Mobile phone"),
        index=None,
        placeholder="Choix",
@@ -58,7 +58,7 @@ with col1:
 # Critere 2
 with col2:
      critere_2 = st.selectbox(
-       "Critere 2",
+       "",
        ("Email", "Home phone", "Mobile phone"),
        index=None,
        placeholder="Choix",
