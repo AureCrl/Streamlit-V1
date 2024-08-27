@@ -30,7 +30,8 @@ container.markdown(
         f'</div>',
         unsafe_allow_html=True
     )
+# Titre
 st.markdown(
-    '<h1 style="text-align: center; margin-top: 0px">Ça n\'a jamais été aussi simple de <em>partager</em> !</h1>',
+    '<h1 style="text-align: center; margin-top: 0px">La résidence secondaire à prix accessible !</h1>',
     unsafe_allow_html=True
 )
