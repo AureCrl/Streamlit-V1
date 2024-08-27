@@ -79,4 +79,7 @@ header[data-testid="stHeader"] svg { /* Pour les icônes */
  .st-b6 {
     color: rgb(17, 63, 96) !important;
 }
-
+/* couleur du texte de base sans selection*/
+ .st-cf {
+    color: rgb(0 0 0 / 60%);
+}
