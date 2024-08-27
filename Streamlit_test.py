@@ -50,3 +50,29 @@ st.markdown(
     <div style="height: 4px; background-color: #113f60;width: 100%; margin-top: 10px;"></div>
     """,
     unsafe_allow_html=True)
+
+# Utilisation du fichier style.css
+ style_css = """
+                <style>
+                th {
+                    background-color: #E1DCCA; 
+                }
+                th:nth-child(1) {
+                text-align: center; 
+                  }
+                th:nth-child(2) {
+                text-align: center;
+                }
+                }
+                th:nth-child(3) {
+                text-align: center;
+                }
+                }
+                th:nth-child(4) {
+                text-align: center;
+                }
+                td {
+                text-align: center; 
+                }
+                </style>
+            """
