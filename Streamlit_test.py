@@ -61,10 +61,10 @@ Critere_6 = False
 
 
 # Critere 1
-critere_1 = st.selectbox(
- index=None,
- placeholder="Choix",
- ("Email", "Home phone", "Mobile phone"),
- disabled=False,
+option = st.selectbox(
+    "How would you like to be contacted?",
+    ("Email", "Home phone", "Mobile phone"),
 )
+
+st.write("You selected:", option)
 
