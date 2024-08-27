@@ -28,7 +28,7 @@ container.markdown(
     )
 # Titre
 st.markdown(
-    '<h1 style="text-align: center; margin-top: 0px; color: #113f60;">La résidence secondaire à prix accessible !</h1>',
+    '<h1 style="text-align: flex-start; margin-top: 0px; color: #113f60;">La résidence secondaire à prix accessible !</h1>',
     unsafe_allow_html=True
 )
 st.markdown(" ")
