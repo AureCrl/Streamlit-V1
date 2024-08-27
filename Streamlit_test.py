@@ -25,7 +25,7 @@ Hello *world!*
 image = "https://i.goopics.net/an3xxk.png"
 container = st.container()
 container.markdown(
-        f'<div style="display: flex; justify-content: center; margin-top: 0px; margin-bot: 0px;">'
+        f'<div style="display: flex; justify-content: flex-start; align-items: flex-start; margin-top: 0px; margin-bot: 0px;">'
         f'<img src="{image}" style="width: 5;">'
         f'</div>',
         unsafe_allow_html=True
