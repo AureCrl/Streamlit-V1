@@ -39,7 +39,7 @@ container.markdown(
 # La GROSSE BARRE
 st.markdown(
  """
-    <div style="height: 4px; background-color: #113f60;width: 100%; margin-top: 10px;"></div>
+    <div style="height: 4px; background-color: #113f60;width: 100%; margin-top: 20px;"></div>
     """,
     unsafe_allow_html=True)
 
