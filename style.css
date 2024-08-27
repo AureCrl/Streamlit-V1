@@ -61,7 +61,10 @@ body {
     border-color: rgb(17, 63, 96) !important; /* Garde la même couleur de contour lors du focus */
 }
 
-
+/* Changer la couleur de fond de la barre supérieure de Streamlit */
+header[data-testid="stHeader"] {
+    background-color: white; /* Mettre la barre en blanc */
+}
 
 
 
