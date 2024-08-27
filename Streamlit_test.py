@@ -64,6 +64,34 @@ with col2:
        placeholder="Choix",
        key="Critere 2"
      )
+ # Critere 3
+with col3:
+     critere_3 = st.selectbox(
+       "",
+       ("Email", "Home phone", "Mobile phone"),
+       index=None,
+       placeholder="Choix",
+       key="Critere 3"
+     )
+ # Critere 4
+with col4:
+     critere_4 = st.selectbox(
+       "",
+       ("Email", "Home phone", "Mobile phone"),
+       index=None,
+       placeholder="Choix",
+       key="Critere 4"
+     )
+ # Critere 2
+with col5:
+     critere_5 = st.selectbox(
+       "",
+       ("Email", "Home phone", "Mobile phone"),
+       index=None,
+       placeholder="Choix",
+       key="Critere 5"
+     )
+ 
 
 
 
