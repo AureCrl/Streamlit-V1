@@ -71,5 +71,7 @@ header[data-testid="stHeader"] .css-1q1n0ol, /* Pour le texte */
 header[data-testid="stHeader"] svg { /* Pour les icônes */
     color: rgb(17, 63, 96); /* Changer la couleur en bleu foncé */
 }
-
+.st-bb {
+    background-color: rgb(37 43 99) !important;
+}
 
