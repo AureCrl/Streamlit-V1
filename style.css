@@ -100,5 +100,5 @@ header[data-testid="stHeader"] svg { /* Pour les icônes */
 }
  /*couleur de la selection "hover" */ 
  .st-emotion-cache-1ppef92:hover, .st-emotion-cache-1ppef92:active, .st-emotion-cache-1ppef92:focus-visible {
-    background: rgb(255 255 255);
+    background: rgba(17, 63, 96, 0.20) !important;
 }
