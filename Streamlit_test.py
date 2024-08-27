@@ -64,6 +64,7 @@ Critere_6 = False
 critere_1 = st.selectbox(
  index=None,
  placeholder="Choix",
+ ("Email", "Home phone", "Mobile phone"),
  disabled=False,
 )
 
