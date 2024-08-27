@@ -36,3 +36,9 @@ st.markdown(
     unsafe_allow_html=True
 )
 st.markdown(" ")
+# Position et couleur du titre
+st.markdown(
+    """
+    <div style="height: 4px; background-color: #113f60;"></div>
+    """,
+    unsafe_allow_html=True
