@@ -94,3 +94,7 @@ header[data-testid="stHeader"] svg { /* Pour les icônes */
  .st-b6 {
     color: rgb(0 0 0) !important;
 }
+ /* couleur du fond des box des choix*/ 
+ .st-bo {
+    background-color: #ebebeb;
+}
