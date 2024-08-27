@@ -83,3 +83,10 @@ header[data-testid="stHeader"] svg { /* Pour les icônes */
  .st-cf {
     color: rgb(0 0 0 / 60%);
 }
+/* couleur de la borude */
+ [data-testid="stSelectbox"] > div {
+    border: 2px solid #ffffff !important;
+    border-radius: 4px;
+    background-color: #f6f4ee !important;
+    color: #113f60 !important;
+}
