@@ -61,6 +61,7 @@ with col2:
        ("Email", "Home phone", "Mobile phone"),
        index=None,
        placeholder="Choix",
+     )
 
 
 
