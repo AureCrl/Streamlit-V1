@@ -20,7 +20,7 @@ with open('style.css') as f:
 # Logo - Titre
 image = "https://i.goopics.net/an3xxk.png"
 # Centrer le titre et le logo
-container.markdown(
+st.markdown(
     f'''
     <div style="text-align: center; margin-bottom: 10px;">
         <img src="{image}" style="width: 200px; margin-bottom: 10px;">
