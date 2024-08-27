@@ -44,7 +44,7 @@ Critere_5 = False
 Critere_6 = False
 
 # Création des colonnes pour les selectbox
-col1, col2, col3, col4, col5 = st.columns([1, 1, 1, 1, 1])
+col1, col2, col3, col4, col5, col6 = st.columns([1, 1, 1, 1, 1, 1])
 
 # Critere 1
 with col1:
@@ -91,6 +91,15 @@ with col5:
        placeholder="Choix",
        key="Critere 5"
      )
+ # Critere 1
+with col6:
+     critere_6 = st.selectbox(
+       "",
+       ("Email", "Home phone", "Mobile phone"),
+       index=None,
+       placeholder="Choix",
+       key="Critere 6"
+)
  
 
 
