@@ -50,3 +50,20 @@ st.markdown(
     <div style="height: 4px; background-color: #113f60;width: 100%; margin-top: 10px;"></div>
     """,
     unsafe_allow_html=True)
+
+#Création d'une variable pour chaque critère. Par défaut sur False, elle sera changée en True si un critère est selectionné dans la selectbox.
+Critere_1 = False
+Critere_2 = False
+Critere_3 = False
+Critere_4 = False
+Critere_5 = False
+Critere_6 = False
+
+
+# Critere 1
+critere_1 = st.selectbox(
+ index=None,
+ placeholder="Choix",
+ disabled=False,
+)
+
