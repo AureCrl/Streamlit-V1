@@ -22,7 +22,7 @@ image = "https://i.goopics.net/an3xxk.png"
 container = st.container()
 container.markdown(
     f'''
-    <div style="display: flex; align-items: center; justify-content: space-between;">
+    <div style="text-align: center; justify-content: space-between;">
         <img src="{image}" style="width: 200px; margin-right: 10px;">
         <h1 style="color: #113f60; margin: 0;">La résidence secondaire à prix accessible !</h1>
     </div>
