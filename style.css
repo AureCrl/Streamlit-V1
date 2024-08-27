@@ -73,7 +73,7 @@ header[data-testid="stHeader"] svg { /* Pour les icônes */
 }
 /* Couleur du fond du picker*/ 
 .st-bb {
-    background-color: rgb(17 63 96) !important;
+    background-color: rgb(255 255 255) !important;
 }
 /* couleur du texte et fleche selecteur*/
  .st-b6 {
