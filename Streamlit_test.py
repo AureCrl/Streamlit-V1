@@ -17,16 +17,12 @@ from google.cloud import bigquery
 #query_result = query_job.result()
 #data = query_result.to_dataframe()
 
-st.write("""
-# My first app
-Hello *world!*
-""")
 # Logo
 image = "https://i.goopics.net/an3xxk.png"
 container = st.container()
 container.markdown(
         f'<div style="display: flex; justify-content: flex-start; align-items: flex-start; margin-top: 0px; margin-bot: 0px;">'
-        f'<img src="{image}" style="width: 5;">'
+        f'<img src="{image}" style="width: 4;">'
         f'</div>',
         unsafe_allow_html=True
     )
