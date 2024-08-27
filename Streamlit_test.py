@@ -16,22 +16,34 @@ with open('style.css') as f:
 #query_job = client.query(query)
 #query_result = query_job.result()
 #data = query_result.to_dataframe()
-
-# Logo
+# Logo - Titre
 image = "https://i.goopics.net/an3xxk.png"
 container = st.container()
 container.markdown(
-        f'<div style="display: flex; justify-content: flex-start; align-items: flex-start; margin-top: 0px; margin-bot: 0px;">'
-        f'<img src="{image}" style="width: 150;">'
-        f'</div>',
-        unsafe_allow_html=True
-    )
-# Titre
-st.markdown(
-    '<h1 style="text-align: flex-start; margin-top: 0px; color: #113f60;">La résidence secondaire à prix accessible !</h1>',
+    f'''
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+        <img src="{image}" style="width: 150px; margin-right: 20px;">
+        <h1 style="color: #113f60; margin: 0;">La résidence secondaire à prix accessible !</h1>
+    </div>
+    ''',
     unsafe_allow_html=True
 )
-st.markdown(" ")
+
+# Logo
+#image = "https://i.goopics.net/an3xxk.png"
+#container = st.container()
+#container.markdown(
+ #       f'<div style="display: flex; justify-content: flex-start; align-items: flex-start; margin-top: 0px; margin-bot: 0px;">'
+ #       f'<img src="{image}" style="width: 150;">'
+ #       f'</div>',
+ #       unsafe_allow_html=True
+ #   )
+# Titre
+#st.markdown(
+#    '<h1 style="text-align: flex-start; margin-top: 0px; color: #113f60;">La résidence secondaire à prix accessible !</h1>',
+#    unsafe_allow_html=True
+#)
+#st.markdown(" ")
 # Position et couleur du titre
 st.markdown(
  """
