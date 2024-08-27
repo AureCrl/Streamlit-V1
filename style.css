@@ -46,16 +46,21 @@ body {
 [data-testid="stSelectbox"] > div {
     border: 2px solid rgb(17, 63, 96); /* Contour en couleur */
     border-radius: 4px; /* Bords légèrement arrondis, optionnel */
-  background-color: white; /* Couleur de fond des options en blanc */
-    color: rgb(17, 63, 96); /* Couleur du texte des options */
+    background-color: white; /* Couleur de fond en blanc */
+    color: rgb(17, 63, 96); /* Couleur du texte */
 }
 
 /* Style pour le focus de la selectbox */
 [data-testid="stSelectbox"]:focus > div {
     border-color: rgb(17, 63, 96); /* Garde la même couleur de contour lors du focus */
-  background-color: white; /* Couleur de fond des options en blanc */
+}
+
+/* Changer la couleur de fond des options dans la selectbox */
+[data-testid="stSelectbox"] select {
+    background-color: white; /* Couleur de fond des options en blanc */
     color: rgb(17, 63, 96); /* Couleur du texte des options */
 }
+
 
 
 
