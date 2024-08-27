@@ -2,6 +2,11 @@ import streamlit as st
 import pandas as pd
 from google.oauth2 import service_account
 from google.cloud import bigquery
+import db_dtypes as db
+import plotly.express as px
+import time
+import geopandas as gpd
+import plotly.graph_objects as go
  
 # Backend
 st.set_page_config(layout="wide", initial_sidebar_state='expanded')
@@ -101,6 +106,9 @@ with col6:
        placeholder="Choix",
        key="Critere 6"
 )
+geodata = gpd.read_file('data_geo/departements.geojson')
+df_geo = pd.merge(geodata, top_10, left_on='code', right_on='department_code', how='inner')
+df_geo = df_geo.drop(['code', 'nom'], axis=1)
  
 
 
