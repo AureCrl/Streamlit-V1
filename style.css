@@ -7,7 +7,7 @@
 #}
 /* Appliquer une couleur de fond à l'ensemble de la page */
 body {
-    background-color: #f0f0f0; /* Couleur de fond de votre choix */
+    background-color: #f6f4ee; /* Couleur de fond de votre choix */
 }
 
 /* Styles pour le conteneur principal de Streamlit */
@@ -63,7 +63,7 @@ body {
 
 /* Changer la couleur de fond de la barre supérieure de Streamlit */
 header[data-testid="stHeader"] {
-    background-color: white; /* Mettre la barre en blanc */
+    background-color: #f6f4ee; /* Mettre la barre en blanc */
 }
 
  /* Optionnel : Changer la couleur des icônes et du texte dans la barre */
