@@ -17,6 +17,17 @@ from google.cloud import bigquery
 #query_result = query_job.result()
 #data = query_result.to_dataframe()
 
+# Appliquer le fond blanc à toute l'application
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: white;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 st.write("""
 # My first app
 Hello *world!*
@@ -32,7 +43,7 @@ container.markdown(
     )
 # Titre
 st.markdown(
-    '<h1 style="text-align: center; margin-top: 0px">La résidence secondaire à prix accessible !</h1>',
+    '<h1 style="text-align: center; margin-top: 0px; color: #113f60;">La résidence secondaire à prix accessible !</h1>',
     unsafe_allow_html=True
 )
 st.markdown(" ")
