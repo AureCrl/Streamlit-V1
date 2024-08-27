@@ -1,4 +1,4 @@
-import streamlit as st
+ import streamlit as st
 import pandas as pd
 from google.oauth2 import service_account
 from google.cloud import bigquery
@@ -61,7 +61,7 @@ Critere_6 = False
 
 
 # Critere 1
-option = st.selectbox(
+critere_1 = st.selectbox(
      "How would you like to be contacted?",
     ("Email", "Home phone", "Mobile phone"),
 )
