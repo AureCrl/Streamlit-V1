@@ -23,7 +23,7 @@ container = st.container()
 container.markdown(
     f'''
     <div style="display: flex; align-items: center; justify-content: space-between;">
-        <img src="{image}" style="width: 150px; margin-right: 20px;">
+        <img src="{image}" style="width: 150px; margin-right: 10px;">
         <h1 style="color: #113f60; margin: 0;">La résidence secondaire à prix accessible !</h1>
     </div>
     ''',
