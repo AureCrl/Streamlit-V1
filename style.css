@@ -42,4 +42,22 @@ body {
     margin-top: 10px;
 }
 
+ /* Style pour les selectbox */
+[data-testid="stSelectbox"] {
+    background-color: white; /* Couleur de fond intérieur */
+    border: 1px solid rgb(17, 63, 96); /* Contour fin */
+    border-radius: 4px; /* Bords légèrement arrondis */
+    color: rgb(17, 63, 96); /* Couleur du texte à l'intérieur */
+    padding: 3px; /* Réduit l'espacement intérieur pour éviter les gros carrés */
+    font-size: 14px; /* Taille de la police */
+    width: 100%; /* S'assure que le selectbox prend toute la largeur disponible sans déborder */
+    box-sizing: border-box; /* Empêche le padding d'augmenter la taille de l'élément */
+}
+
+/* Style pour le focus de la selectbox */
+[data-testid="stSelectbox"]:focus {
+    border-color: rgb(17, 63, 96); /* Contour visible lors du focus */
+    outline: none; /* Supprime le contour bleu par défaut lors du focus */
+}
+
 
