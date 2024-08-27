@@ -57,14 +57,4 @@ st.markdown(
     th {
         background-color: #E1DCCA; 
     }
-    th:nth-child(1),
-    th:nth-child(2),
-    th:nth-child(3),
-    th:nth-child(4) {
-        text-align: center; 
-    }
-    td {
-        text-align: center; 
-    }
-    </style>
 """
