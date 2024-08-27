@@ -64,6 +64,8 @@ Critere_6 = False
 critere_1 = st.selectbox(
      "How would you like to be contacted?",
     ("Email", "Home phone", "Mobile phone"),
+ index=None,
+    placeholder="Choix",
 )
 
 
