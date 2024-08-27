@@ -8,8 +8,8 @@ from google.cloud import bigquery
 #credentials = service_account.Credentials.from_service_account_info(st.secrets["gcp_service_account"])
 #client = bigquery.Client(credentials=credentials)
 
-#with open('style.css') as f:
- #   st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+with open('style.css') as f:
+   st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 #query = ("SELECT * FROM `projet-prello.transform_prello.score_table_full` ")
 
