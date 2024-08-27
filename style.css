@@ -1,7 +1,43 @@
-.css-10trblm {
-    margin-top:-130px;
+#.css-10trblm {
+ #   margin-top:-130px;
+#}
+
+#[data-testid="stVerticalBlock"] {
+#    margin-top: -15px; margin-bottom: -30;
+#}
+/* Appliquer une couleur de fond à l'ensemble de la page */
+body {
+    background-color: #f0f0f0; /* Couleur de fond de votre choix */
 }
 
+/* Styles pour le conteneur principal de Streamlit */
+[data-testid="stAppViewContainer"] {
+    background-color: #f0f0f0; /* Assurez-vous que la couleur couvre toute la page */
+}
+
+/* Styles pour les blocs verticaux */
 [data-testid="stVerticalBlock"] {
-    margin-top: -15px; margin-bottom: -30;
+    margin-top: -15px; 
+    margin-bottom: -30px; 
+}
+
+/* Style pour les images de logo */
+.logo {
+    width: 200px;
+    height: auto;
+    margin-right: 10px;
+}
+
+/* Style pour le titre */
+.title {
+    color: #113f60;
+    margin: 0;
+}
+
+/* Style pour la barre de séparation */
+.separator {
+    height: 4px;
+    background-color: #113f60;
+    width: 100%;
+    margin-top: 10px;
 }
