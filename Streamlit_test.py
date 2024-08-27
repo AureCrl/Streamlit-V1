@@ -61,10 +61,8 @@ Critere_6 = False
 
 
 # Critere 1
-option = st.selectbox(
-    "How would you like to be contacted?",
-    ("Email", "Home phone", "Mobile phone"),
+critere_1 = st.selectbox(
+    ("A", "B", "C"),
 )
 
-st.write("You selected:", option)
 
