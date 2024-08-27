@@ -66,6 +66,5 @@ option = st.selectbox(
     ("Email", "Home phone", "Mobile phone"),
 )
 
-st.write("You selected:", option)
 
 
