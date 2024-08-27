@@ -67,6 +67,14 @@ critere_1 = st.selectbox(
  index=None,
     placeholder="Choix",
 )
+# Critere 2
+critere_2 = st.selectbox(
+     "How would you like to be contacted?",
+    ("Email", "Home phone", "Mobile phone"),
+ index=None,
+    placeholder="Choix",
+)
+
 
 
 
