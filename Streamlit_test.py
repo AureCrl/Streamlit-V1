@@ -17,17 +17,6 @@ from google.cloud import bigquery
 #query_result = query_job.result()
 #data = query_result.to_dataframe()
 
-# Appliquer le fond blanc à toute l'application
-st.markdown(
-    """
-    <style>
-    body {
-        background-color: white;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 st.write("""
 # My first app
 Hello *world!*
