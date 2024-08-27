@@ -41,4 +41,4 @@ st.markdown(
     """
     <div style="height: 4px; background-color: #113f60;"></div>
     """,
-    unsafe_allow_html=True
+    unsafe_allow_html=True)
