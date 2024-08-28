@@ -10,17 +10,11 @@ import plotly.graph_objects as go
  
 # Backend
 st.set_page_config(layout="wide", initial_sidebar_state='expanded')
-#credentials = service_account.Credentials.from_service_account_info(st.secrets["gcp_service_account"])
-#client = bigquery.Client(credentials=credentials)
 
 with open('style.css') as f:
    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
-#query = ("SELECT * FROM `projet-prello.transform_prello.score_table_full` ")
 
-#query_job = client.query(query)
-#query_result = query_job.result()
-#data = query_result.to_dataframe()
 
 # Logo - Titre
 image = "https://i.goopics.net/an3xxk.png"
