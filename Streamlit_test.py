@@ -8,24 +8,7 @@ import time
 import geopandas as gpd
 import plotly.graph_objects as go
 
-# Chargement des données
-geodata = gpd.read_file('/content/departements.geojson')
-Vente_immo = pd.read_csv('/content/Vente_immobiliere.csv')
-Housing = pd.read_csv('/content/Housing stock.csv')
-POI_touristic = pd.read_csv("/content/POI touristic_sites.csv")
-Population = pd.read_csv("/content/Population_municipality_year.csv")
-Soleil = pd.read_csv("/content/taux_ensoleilement.csv")
-# Prétraitement des données
-Vente_immo["code"] = Vente_immo["municipality_code"].str[:2]
-Housing["code"] = Housing["municipality_code"].str[:2]
-POI_touristic["code"] = POI_touristic["municipality_code"].str[:2]
-Population["code"] = Population["municipality_code"].str[:2]
-Soleil["code"] = Soleil["municipality_code"].astype(str).str[:2]
-# Fusion des données
-data = Vente_immo.merge(Housing, on='code', how='left')
-data = data.merge(POI_touristic, on='code', how='left')
-data = data.merge(Population, on='code', how='left')
-data = data.merge(Soleil, on='code', how='left')
+
 # Backend
 st.set_page_config(layout="wide", initial_sidebar_state='expanded')
 with open('style.css') as f:
