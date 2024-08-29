@@ -123,7 +123,7 @@ elif Relief_selected == "Plaine":
 data["score_final"] = data["prix_moyen_m²_2021"] + data["nb_second_home_2018"]
 
 # Sélectionner le TOP 10 basé sur le score
-top_10 = data.nlargest(10, 'score_final')
+top_10 = data.nsmallest(10, 'score_final')
 
 # Réinitialisation de l'index pour le tableau
 top_10 = top_10.reset_index(drop=True).reset_index()
