@@ -128,9 +128,16 @@ top_10 = top_10.reset_index(drop=True).reset_index()
 top_10['index'] += 1
 top_10 = top_10.set_index('index')
 
-# Tableau top 10
+# Renommer les colonnes
+top_10_renamed = top_10.rename(columns={
+    "code": "Code Département",
+    "nom": "Nom du Département",
+    "prix_moyen_m²_2021": "Prix Moyen au m² en 2021"
+})
+
+# Afficher le tableau avec les nouveaux noms de colonnes
 st.header("Top 10 Départements")
-st.dataframe(top_10[["code", "nom", "prix_moyen_m²_2021"]])
+st.dataframe(top_10_renamed[["Code Département", "Nom du Département", "Prix Moyen au m² en 2021"]])
 
 # Graphique Scatter
 st.subheader("En 2021 le prix moyen du m² tout départements confondu était de 3000€")
