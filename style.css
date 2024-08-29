@@ -148,5 +148,5 @@ header[data-testid="stHeader"] svg { /* Pour les icônes */
  
 /* Style pour les titres des critères */
 .criteres-title {
-    margin-bottom: 10px !important; /* Ajuste cet espace selon tes besoins */
+    margin-bottom: 10px ; /* Ajuste cet espace selon tes besoins */
 
