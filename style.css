@@ -155,3 +155,13 @@ header[data-testid="stHeader"] svg { /* Pour les icônes */
     line-height: 1.2;
 }
 
+ /*Couleur titre prix m²*/
+ h3 {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 600;
+    color: #113f60!important;
+    letter-spacing: -0.005em;
+    padding: 0.5rem 0px 1rem;
+    margin: 0px;
+    line-height: 1.2;
+}
