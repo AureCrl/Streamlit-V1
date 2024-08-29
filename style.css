@@ -105,12 +105,12 @@ header[data-testid="stHeader"] svg { /* Pour les icônes */
 
 /* Style pour espacer les selectboxes des barres */
 .selectbox-container {
-    margin-top: 40px; /* Ajuste cet espace selon tes besoins */
+    margin-top: 40px !important; /* Ajuste cet espace selon tes besoins */
 }
 
 /* Style pour les titres des critères */
 .criteres-title {
-    margin-bottom: 10px; /* Ajuste cet espace selon tes besoins */
+    margin-bottom: 10px !important; /* Ajuste cet espace selon tes besoins */
 }
 
  .st-emotion-cache-13k62yr {
