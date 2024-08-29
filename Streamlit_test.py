@@ -173,19 +173,18 @@ color_dict = {
     6: 'yellow', 7: 'pink', 8: 'cyan', 9: 'magenta', 10: 'brown'
 }
 geojson_data = pd.merge(geojson_data, top_10, left_on='code', right_on='code', how='inner')
-geojson_data = geojson_data.drop(['code', 'nom_x'], axis=1)
+geojson_data = geojson_data.drop(['code', 'nom_geo'], axis=1)
 geojson_data['colorank'] = geojson_data['prix_moyen_m²_2021'].rank(ascending=True)
-
 fig = px.choropleth_mapbox(geojson_data,
-                           geojson=geojson_data.geometry.__geo_interface__,
+                           geojson=geojson_data.geometry,
                            locations=geojson_data.index,
                            mapbox_style="carto-positron",
-                           hover_name='nom',
+                           hover_name='nom_data',
                            color="colorank",
                            color_discrete_map=color_dict,
                            center={"lat": 46.8, "lon": 1.8},
-                           custom_data=['nom'],
+                           custom_data=['nom_data'],
                            zoom=4.2,
                            opacity=0.9)
 
-st.plotly_chart(fig)
+fig.show()
