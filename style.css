@@ -1,7 +1,162 @@
-.css-10trblm {
-    margin-top:-130px;
+#.css-10trblm {
+ #   margin-top:-130px;
+#}
+
+#[data-testid="stVerticalBlock"] {
+#    margin-top: -15px; margin-bottom: -30;
+#}
+/* Appliquer une couleur de fond à l'ensemble de la page */
+body {
+    background-color: #f6f4ee; /* Couleur de fond de votre choix */
 }
 
-[data-testid="stVerticalBlock"] {
-    margin-top: -15px; margin-bottom: -30;
+/* Styles pour le conteneur principal de Streamlit */
+[data-testid="stAppViewContainer"] {
+    background-color: #f0f0f0; /* Assurez-vous que la couleur couvre toute la page */
 }
+
+/* Styles pour les blocs verticaux */
+[data-testid="stVerticalBlock"] {
+    margin-top: -15px; 
+    margin-bottom: -30px; 
+}
+
+/* Style pour les images de logo */
+.logo {
+    width: 200px;
+    height: auto;
+    margin-right: 10px;
+}
+
+/* Style pour le titre */
+.title {
+    color: #113f60;
+    margin: 0;
+}
+
+/* Style pour la barre de séparation */
+.separator {
+    height: 4px;
+    background-color: #113f60;
+    width: 100%;
+    margin-top: 10px;
+}
+/*Taile et marge pour les titres des picker*/
+ .st-emotion-cache-1whx7iy p {
+    word-break: break-word;
+    margin-bottom: 0px;
+    font-size: 22px;
+}
+ p, ol, ul, dl {
+    margin: 0px 0px 1rem;
+    padding: 20px;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+ 
+
+/* Modifier la couleur du contour et de fond de la selectbox */
+[data-testid="stSelectbox"] > div {
+    border: 2px solid #113f60 !important; /* Contour en couleur avec !important */
+    border-radius: 4px; /* Bords légèrement arrondis, optionnel */
+    background-color: #f6f4ee !important; /* Couleur de fond en blanc avec !important */
+    color: #113f60 !important; /* Couleur du texte avec !important */
+}
+
+/* Changer la couleur de fond des options dans la selectbox */
+[data-testid="stSelectbox"] select {
+    background-color: #f6f4ee !important; /* Couleur de fond des options en blanc */
+    color: #113f60 !important; /* Couleur du texte des options */
+}
+
+/* Style pour le focus de la selectbox */
+[data-testid="stSelectbox"]:focus > div {
+    border-color: rgb(17, 63, 96) !important; /* Garde la même couleur de contour lors du focus */
+}
+
+/* Changer la couleur de fond de la barre supérieure de Streamlit */
+header[data-testid="stHeader"] {
+    background-color: #f6f4ee; /* Mettre la barre en blanc */
+}
+
+ /* Optionnel : Changer la couleur des icônes et du texte dans la barre */
+header[data-testid="stHeader"] .css-1q1n0ol, /* Pour le texte */
+header[data-testid="stHeader"] svg { /* Pour les icônes */
+    color: rgb(17, 63, 96); /* Changer la couleur en bleu foncé */
+}
+/* Couleur du fond du picker*/ 
+.st-bb {
+    background-color: rgb(255 255 255) !important;
+}
+/* couleur du texte et fleche selecteur*/
+ .st-b6 {
+    color: rgb(17, 63, 96) !important;
+}
+/* couleur du texte de base sans selection*/
+ .st-cf {
+    color: rgb(0 0 0 / 60%);
+}
+/* couleur de la borude */
+ [data-testid="stSelectbox"] > div {
+    border: 2px solid #ffffff !important;
+    border-radius: 4px;
+    background-color: #f6f4ee !important;
+    color: #113f60 !important;
+}
+ /* couleur du texte dans les choix */
+ .st-b6 {
+    color: rgb(0 0 0) !important;
+}
+ /* couleur du fond des box des choix*/ 
+ .st-bo {
+    background-color: #ebebeb;
+}
+ /*couleur de la selection "hover" */ 
+ .st-emotion-cache-1ppef92:hover, .st-emotion-cache-1ppef92:active, .st-emotion-cache-1ppef92:focus-visible {
+    background: rgb(207, 214, 219);
+}
+
+ /* Couleur des titres des pickers */
+  .st-emotion-cache-1qg05tj {
+    font-size: 18px !important;
+    font-weight: bold !important;
+    color: rgb(17 63 96);
+    display: flex;
+    visibility: visible;
+    margin-bottom: 0.50rem;
+    margin-top: 1.50rem;
+    height: auto;
+    min-height: 1.5rem;
+    vertical-align: middle;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+/* Style pour espacer les selectboxes des barres */
+.selectbox-container {
+    margin-top: 40px !important; /* Ajuste cet espace selon tes besoins */
+}
+ 
+  /*Couleur top 10*/
+ h2 {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 600;
+    color: #113f60 !important;
+    letter-spacing: -0.005em;
+    padding: 1rem 0px;
+    margin: 0px;
+    line-height: 1.2;
+}
+
+  /*Couleur titre prix m²*/
+ h3 {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 600;
+    color: rgb(17 63 96) !important;
+    letter-spacing: -0.005em;
+    padding: 0.5rem 0px 1rem;
+    margin: 0px;
+    line-height: 1.2;
+ 
