@@ -172,29 +172,4 @@ fig_bar.add_shape(
 )
 st.plotly_chart(fig_bar)
 
-#Maping
-color_dict = {
-    1: 'blue', 2: 'green', 3: 'purple', 4: 'red', 5: 'orange',
-    6: 'yellow', 7: 'pink', 8: 'cyan', 9: 'magenta', 10: 'brown'
-}
 
-
-df_geo = pd.merge(geodata, top_10, left_on='code', right_on='code', how='inner')
-df_geo = geodata.drop(['code', 'nom_geo'], axis=1)
-df_geo['colorank'] = df_geo['prix_moyen_m²_2021'].rank(ascending=True)
-df_geo["geometry"] = df_geo["geometry"].apply(lambda x : x.__geo_interface__)
-st.dataframe(df_geo)
-st.dataframe(top_10)
-fig = px.choropleth_mapbox(df_geo,
-                           geodata=df_geo.geometry,
-                           locations=df_geo.index,
-                           mapbox_style="carto-positron",
-                           hover_name='nom_data',
-                           color="colorank",
-                           color_discrete_map=color_dict,
-                           center={"lat": 46.8, "lon": 1.8},
-                           custom_data=['nom_data'],
-                           zoom=4.2,
-                           opacity=0.9)
-
-fig.show()
