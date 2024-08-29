@@ -8,7 +8,7 @@ import geopandas as gpd
 import plotly.graph_objects as go
 
 # Chargement des données
-data = pd.read_csv("merged_df_streamlit.csv")
+data = pd.read_csv("New_merged_df_streamlit.csv")
 geojson_data = gpd.read_file("departements.geojson")
 
 
