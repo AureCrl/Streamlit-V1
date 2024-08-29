@@ -12,6 +12,8 @@ data = pd.read_csv("merged_df_streamlit.csv")
 geojson_data = gpd.read_file("departements.geojson")
 
 
+print(geojson_data['code'].dtype)
+print(top_10['code'].dtype)
 
 
 # Backend
