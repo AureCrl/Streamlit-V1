@@ -69,7 +69,7 @@ elif POI_selected == "Pas envie":
 with col2:
     Sun_selected = st.selectbox(
         "Et le soleil ?",
-        ("J'en veut !", "Pourquoi pas", "Le moins possible"),
+        ("J'en veux !", "Pourquoi pas", "Le moins possible"),
         index=None,
         placeholder="Choix",
         key="Critere 2"
