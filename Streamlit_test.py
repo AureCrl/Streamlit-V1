@@ -12,16 +12,7 @@ data = pd.read_csv("merged_df_streamlit.csv")
 geojson_data = gpd.read_file("departements.geojson")
 
 
-# Assurez-vous que la colonne 'code' est bien de type string dans les deux DataFrames
-data['code'] = data['code'].astype(str)
-geojson_data['code'] = geojson_data['code'].astype(str)
 
-# Fusion des DataFrames avec gestion des colonnes en conflit
-geojson_data = geojson_data.set_index('code').join(data.set_index('code'), how='inner', lsuffix='_geo', rsuffix='_data')
-
-# Vérification des colonnes après fusion
-st.write("Colonnes après fusion :")
-st.write(geojson_data.columns)
 
 # Backend
 st.set_page_config(layout="wide", initial_sidebar_state='expanded')
