@@ -138,6 +138,7 @@ fig_scatter = px.scatter(
     top_10,
     x="prix_moyen_m²_2021",
     y="total_poi_tourist",
+    color = "nom" ,
     text="nom",
     title="Total POI vs Prix Moyen du m²",
     labels={"prix_moyen_m²_2021": "Prix Moyen du m²", "total_poi_tourist": "Total POI Touristique"}
