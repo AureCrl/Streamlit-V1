@@ -60,13 +60,10 @@ with col1:
 # Filtrage des données selon POI
 if POI_selected == "Oui!":
     data = data[data["total_poi_tourist"] >= 500]
-    data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","population_2019","relief","jour_soleil_an","nom"])
 elif POI_selected == "Vite fait":
     data = data[data["total_poi_tourist"] >= 250]
-    data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","population_2019","relief","jour_soleil_an","nom"])
 elif POI_selected == "Pas envie":
     data = data[data["total_poi_tourist"] < 250]
-    data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","population_2019","relief","jour_soleil_an","nom"])
 
 # Critère 2
 with col2:
@@ -81,13 +78,10 @@ with col2:
 # Filtrage des données selon Sun
 if Sun_selected == "J'en veut !":
     data = data[data["jour_soleil_an"] >= 180]
-    data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","population_2019","relief","total_poi_tourist","nom"])
 elif Sun_selected == "Pourquoi pas":
     data = data[data["jour_soleil_an"] >= 135]
-    data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","population_2019","relief","total_poi_tourist","nom"])
 elif Sun_selected == "Le moins possible":
     data = data[data["jour_soleil_an"] < 135]
-    data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","population_2019","relief","total_poi_tourist","nom"])
 
 # Critère 3
 with col3:
@@ -102,10 +96,8 @@ with col3:
 # Filtrage des données selon Population
 if Population_selected == "Oui":
     data = data[data["population_2019"] <= 500000]
-    data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","jour_soleil_an","relief","total_poi_tourist","nom"])
 elif Population_selected == "Peu importe":
     data = data[data["population_2019"] > 500000]
-    data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","jour_soleil_an","relief","total_poi_tourist","nom"])
 
 # Critère 4
 with col4:
