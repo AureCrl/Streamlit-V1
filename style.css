@@ -133,7 +133,7 @@ header[data-testid="stHeader"] svg { /* Pour les icônes */
  h2 {
     font-family: "Source Sans Pro", sans-serif;
     font-weight: 600;
-    color: #113f60 !important;
+    color: rgb(17 63 96) !important;
     letter-spacing: -0.005em;
     padding: 1rem 0px;
     margin: 0px;
@@ -144,7 +144,7 @@ header[data-testid="stHeader"] svg { /* Pour les icônes */
  h3 {
     font-family: "Source Sans Pro", sans-serif;
     font-weight: 600;
-    color: #113f60 !important;
+    color: rgb(17 63 96) !important;
     letter-spacing: -0.005em;
     padding: 0.5rem 0px 1rem;
     margin: 0px;
