@@ -78,7 +78,7 @@ with col2:
     )
 
 # Filtrage des données selon Sun
-if Sun_selected == "J'en veut !":
+if Sun_selected == "J'en veux !":
     data = data[data["jour_soleil_an"] >= 180]
 elif Sun_selected == "Pourquoi pas":
     data = data[data["jour_soleil_an"] >= 135]
