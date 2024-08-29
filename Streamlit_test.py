@@ -158,11 +158,11 @@ fig_bar = px.bar(
     title="Nombre de Résidences Secondaires par Département",
     labels={"nb_second_home_2018": "Nombre de Résidences Secondaires"}
 )
-mean_value = top_10["nb_second_home_2018"].mean()
+sum_value = top_10["nb_second_home_2018"].sum()
 fig_bar.add_shape(
     type="line",
     x0=-0.5, x1=len(top_10)-0.5,
-    y0=mean_value, y1=mean_value,
+    y0=sum_value, y1=sum_value,
     line=dict(color="Red", width=2, dash="dash")
 )
 st.plotly_chart(fig_bar)
