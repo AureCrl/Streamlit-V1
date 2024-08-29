@@ -49,7 +49,7 @@ Relief_selected = False
 # Création des colonnes pour les selectbox
 col1, col2, col3, col4 = st.columns([1, 1, 1, 1])
 
-# Critère 1
+# Critère POI
 with col1:
     POI_selected = st.selectbox(
         "Une envie de visiter des lieux touristique ?",
@@ -67,7 +67,7 @@ elif POI_selected == "Vite fait":
 elif POI_selected == "Pas envie":
     data = data[data["total_poi_tourist"] < 250]
 
-# Critère 2
+# Critère Soleil
 with col2:
     Sun_selected = st.selectbox(
         "Et le soleil ?",
@@ -85,7 +85,7 @@ elif Sun_selected == "Pourquoi pas":
 elif Sun_selected == "Le moins possible":
     data = data[data["jour_soleil_an"] < 135]
 
-# Critère 3
+# Critère Population
 with col3:
     Population_selected = st.selectbox(
         "Tu préfère la tranquillité ?",
@@ -101,7 +101,7 @@ if Population_selected == "Oui":
 elif Population_selected == "Peu importe":
     data = data[data["population_2019"] > 1000000]
 
-# Critère 4
+# Critère Relief
 with col4:
     Relief_selected = st.selectbox(
         "En terme de relief ?",
