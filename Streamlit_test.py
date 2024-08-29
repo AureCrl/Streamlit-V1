@@ -150,6 +150,7 @@ fig_bar = px.bar(
     top_10,
     x="nom",
     y="nb_second_home_2018",
+    color = "nom",
     title="Nombre de Résidences Secondaires par Département",
     labels={"nb_second_home_2018": "Nombre de Résidences Secondaires"}
 )
