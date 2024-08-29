@@ -112,3 +112,10 @@ header[data-testid="stHeader"] svg { /* Pour les icônes */
 .criteres-title {
     margin-bottom: 10px; /* Ajuste cet espace selon tes besoins */
 }
+
+ .st-emotion-cache-13k62yr {
+    background: rgb(14, 17, 23); /* Couleur actuelle de fond */
+    /* Modifiez la couleur de fond comme ceci */
+    background: #ffffff; /* Exemple de couleur blanche */
+}
+
