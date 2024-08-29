@@ -153,37 +153,4 @@ fig_map = px.choropleth_mapbox(
     title="Top 10 des Départements"
 )
 
-st.plotly_chart(fig_map)
 
-# Tableau top 10
-st.header("Top 10 Départements")
-st.dataframe(top_10[["code", "nom", "prix_moyen_m²_2021"]])
-
-# Graphique Scatter
-fig_scatter = px.scatter(
-    top_10,
-    x="prix_moyen_m²_2021",
-    y="total_poi_tourist",
-    text="nom",
-    title="Total POI vs Prix Moyen du m²",
-    labels={"prix_moyen_m²_2021": "Prix Moyen du m²", "total_poi_tourist": "Total POI Touristique"}
-)
-fig_scatter.update_traces(textposition='top center')
-st.plotly_chart(fig_scatter)
-
-# Graphique Bar
-fig_bar = px.bar(
-    top_10,
-    x="nom",
-    y="nb_second_home_2018",
-    title="Nombre de Résidences Secondaires par Département",
-    labels={"nb_second_home_2018": "Nombre de Résidences Secondaires"}
-)
-mean_value = top_10["nb_second_home_2018"].mean()
-fig_bar.add_shape(
-    type="line",
-    x0=-0.5, x1=len(top_10)-0.5,
-    y0=mean_value, y1=mean_value,
-    line=dict(color="Red", width=2, dash="dash")
-)
-st.plotly_chart(fig_bar)
