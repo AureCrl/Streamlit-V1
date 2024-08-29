@@ -149,7 +149,7 @@ with col2:
         text="nom",
         title="Total POI vs Prix Moyen du m²",
         labels={"prix_moyen_m²_2021": "Prix Moyen du m²", "total_poi_tourist": "Total POI Touristique"},
-        size = "prix_moyen_m²_2021"
+        size = "prix_moyen_m²_2021",
         size_max=40  
     )
     fig_scatter.update_traces(textposition='top center')
