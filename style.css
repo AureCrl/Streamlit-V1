@@ -125,10 +125,6 @@ header[data-testid="stHeader"] svg { /* Pour les icônes */
     margin-top: 40px !important; /* Ajuste cet espace selon tes besoins */
 }
  
- .gdg-element {
-    background-color: rgb(255, 0, 0) !important; /* Couleur de fond rouge */
-    color: rgb(255, 255, 255) !important; /* Couleur du texte blanc */
-}
   /*Couleur top 10*/
  h2 {
     font-family: "Source Sans Pro", sans-serif;
