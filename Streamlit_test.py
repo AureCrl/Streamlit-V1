@@ -135,6 +135,7 @@ st.header("Top 10 Départements")
 st.dataframe(top_10[["code", "nom", "prix_moyen_m²_2021"]])
 
 # Graphique Scatter
+st.subheader("En 2021 le prix moyen du m² tout départements confondu était de 3000€")
 size_value = data["total_poi_tourist"]
 fig_scatter = px.scatter(
     top_10,
