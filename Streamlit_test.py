@@ -120,7 +120,7 @@ elif Relief_selected == "Plaine":
     data = data[data['relief'] == 'Plaine']
 
 # Calcul du score final
-data["score_final"] = data["prix_moyen_m²_2021"] + data["nb_second_home_2018"]
+data["score_final"] = data["prix_moyen_m²_2021"] + data["total_nb_second_home"]
 
 # Sélectionner le TOP 10 basé sur le score
 top_10 = data.nsmallest(10, 'score_final')
@@ -153,12 +153,12 @@ st.plotly_chart(fig_scatter)
 fig_bar = px.bar(
     top_10,
     x="nom",
-    y="nb_second_home_2018",
+    y="total_nb_second_home",
     color = "nom",
     title="Nombre de Résidences Secondaires par Département",
-    labels={"nb_second_home_2018": "Nombre de Résidences Secondaires"}
+    labels={"total_nb_second_home": "Nombre de Résidences Secondaires"}
 )
-mean_value = top_10["nb_second_home_2018"].mean()
+mean_value = top_10["total_nb_second_home"].mean()
 fig_bar.add_shape(
     type="line",
     x0=-0.5, x1=len(top_10)-0.5,
