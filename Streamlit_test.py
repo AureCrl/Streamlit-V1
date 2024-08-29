@@ -148,7 +148,9 @@ with col2:
         color="nom",
         text="nom",
         title="Total POI vs Prix Moyen du m²",
-        labels={"prix_moyen_m²_2021": "Prix Moyen du m²", "total_poi_tourist": "Total POI Touristique"}
+        labels={"prix_moyen_m²_2021": "Prix Moyen du m²", "total_poi_tourist": "Total POI Touristique"},
+        size="total_nb_second_home",
+        size_max=60  
     )
     fig_scatter.update_traces(textposition='top center')
     st.plotly_chart(fig_scatter)
