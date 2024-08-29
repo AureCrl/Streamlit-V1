@@ -140,17 +140,19 @@ top_10 = top_10.set_index('index')
 geojson_data = geojson_data.merge(top_10, left_on='id', right_on='code')
 
 # Créer la carte choropleth
-fig_map = px.choropleth_mapbox(
-    geojson_data,
-    geojson="departements.geojson",
-    locations="code",
-    featureidkey="properties.id",
-    color="score_final",
-    color_continuous_scale="Viridis",
-    mapbox_style="carto-positron",
-    center={"lat": 46.603354, "lon": 1.888334},
-    zoom=5,
-    title="Top 10 des Départements"
-)
+fig = px.choropleth_mapbox(df_geo,
+                           geojson=df_geo.geometry,
+                           locations=df_geo.index,
+                           mapbox_style="carto-positron",
+                           hover_name='nom',
+                           color="colorank",
+                           color_discrete_map=color_dict,
+                           center={"lat": 46.8, "lon": 1.8},
+                           custom_data=['nom_y'],
+                           zoom=4.2,
+                           opacity=0.9)
+
+
+fig.show()
 
 
