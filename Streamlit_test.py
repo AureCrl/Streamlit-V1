@@ -95,9 +95,9 @@ with col3:
 
 # Filtrage des données selon Population
 if Population_selected == "Oui":
-    data = data[data["population_2019"] <= 500000]
+    data = data[data["population_2019"] <= 1000000]
 elif Population_selected == "Peu importe":
-    data = data[data["population_2019"] > 500000]
+    data = data[data["population_2019"] > 1000000]
 
 # Critère 4
 with col4:
