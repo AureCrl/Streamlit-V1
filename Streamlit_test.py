@@ -7,7 +7,7 @@ import plotly.graph_objects as go
 
 # Chargement des données
 data = pd.read_csv("New_merged_df_streamlit.csv")
-geojson_data = gpd.read_file("departements.geojson")
+geodata = gpd.read_file("gdf.geojson")
 
 data['code'] = data['code'].astype(int)
 
@@ -172,14 +172,14 @@ color_dict = {
 }
 
 
-df_geo = pd.merge(geojson_data, top_10, left_on='code', right_on='code', how='inner')
-df_geo = df_geo.drop(['code', 'nom_geo'], axis=1)
+df_geo = pd.merge(geodata, top_10, left_on='code', right_on='code', how='inner')
+df_geo = geodata.drop(['code', 'nom_geo'], axis=1)
 df_geo['colorank'] = df_geo['prix_moyen_m²_2021'].rank(ascending=True)
 df_geo["geometry"] = df_geo["geometry"].apply(lambda x : x.__geo_interface__)
 st.dataframe(df_geo)
 st.dataframe(top_10)
 fig = px.choropleth_mapbox(df_geo,
-                           geojson=df_geo.geometry,
+                           geodata=df_geo.geometry,
                            locations=df_geo.index,
                            mapbox_style="carto-positron",
                            hover_name='nom_data',
