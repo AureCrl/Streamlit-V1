@@ -135,6 +135,16 @@ header[data-testid="stHeader"] svg { /* Pour les icônes */
     margin: 0px;
     line-height: 1.2;
 }
+
+  /*Couleur titre prix m²*/
+ h3 {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 600;
+    color: rgb(17 63 96) !important;
+    letter-spacing: -0.005em;
+    padding: 0.5rem 0px 1rem;
+    margin: 0px;
+    line-height: 1.2;
  
 /* Style pour les titres des critères */
 .criteres-title {
