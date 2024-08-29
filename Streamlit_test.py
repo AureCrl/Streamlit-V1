@@ -1,20 +1,20 @@
 import streamlit as st
 import pandas as pd
-from google.oauth2 import service_account
-from google.cloud import bigquery
+import numpy as np
 import db_dtypes as db
 import plotly.express as px
 import time
 import geopandas as gpd
 import plotly.graph_objects as go
 
+# Chargement des données
+data = pd.read_csv("merged_df_streamlit.csv")
+geojson_data = gpd.read_file("departements.geojson")
 
 # Backend
 st.set_page_config(layout="wide", initial_sidebar_state='expanded')
 with open('style.css') as f:
-   st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
-
-
+    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 # Logo - Titre
 image = "https://i.goopics.net/an3xxk.png"
@@ -30,6 +30,7 @@ container.markdown(
     ''',
     unsafe_allow_html=True
 )
+
 # La GROSSE BARRE
 st.markdown(
  """
@@ -37,147 +38,152 @@ st.markdown(
     """,
     unsafe_allow_html=True)
 
-#Création d'une variable pour chaque critère. Par défaut sur False, elle sera changée en True si un critère est selectionné dans la selectbox.
-Critere_1 = False
-Critere_2 = False
-Critere_3 = False
-Critere_4 = False
-Critere_5 = False
-Critere_6 = False
+# Création des variables pour les critères
+POI_selected = False
+Sun_selected = False
+Population_selected = False
+Relief_selected = False
 
 # Création des colonnes pour les selectbox
-col1, col2, col3, col4, col5, col6 = st.columns([1, 1, 1, 1, 1, 1])
+col1, col2, col3, col4 = st.columns([1, 1, 1, 1])
 
-# Critere 1
+# Critère 1
 with col1:
-     critere_1 = st.selectbox(
-       "",
-       ("Email", "Home phone", "Mobile phone"),
-       index=None,
-       placeholder="Choix",
-       key="Critere 1"
-)
-# Critere 2
+    POI_selected = st.selectbox(
+        "Une envie de visiter des lieux touristique ?",
+        ("Oui!", "Vite fait", "Pas envie"),
+        index=None,
+        placeholder="Choix",
+        key="Critere 1"
+    )
+
+# Filtrage des données selon POI
+if POI_selected == "Oui!":
+    data = data[data["total_poi_tourist"] >= 500]
+    data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","population_2019","relief","jour_soleil_an","nom"])
+elif POI_selected == "Vite fait":
+    data = data[data["total_poi_tourist"] >= 250]
+    data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","population_2019","relief","jour_soleil_an","nom"])
+elif POI_selected == "Pas envie":
+    data = data[data["total_poi_tourist"] < 250]
+    data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","population_2019","relief","jour_soleil_an","nom"])
+
+# Critère 2
 with col2:
-     critere_2 = st.selectbox(
-       "",
-       ("Email", "Home phone", "Mobile phone"),
-       index=None,
-       placeholder="Choix",
-       key="Critere 2"
-     )
- # Critere 3
+    Sun_selected = st.selectbox(
+        "Et le soleil ?",
+        ("J'en veut !", "Pourquoi pas", "Le moins possible"),
+        index=None,
+        placeholder="Choix",
+        key="Critere 2"
+    )
+
+# Filtrage des données selon Sun
+if Sun_selected == "J'en veut !":
+    data = data[data["jour_soleil_an"] >= 180]
+    data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","population_2019","relief","total_poi_tourist","nom"])
+elif Sun_selected == "Pourquoi pas":
+    data = data[data["jour_soleil_an"] >= 135]
+    data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","population_2019","relief","total_poi_tourist","nom"])
+elif Sun_selected == "Le moins possible":
+    data = data[data["jour_soleil_an"] < 135]
+    data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","population_2019","relief","total_poi_tourist","nom"])
+
+# Critère 3
 with col3:
-     critere_3 = st.selectbox(
-       "",
-       ("Email", "Home phone", "Mobile phone"),
-       index=None,
-       placeholder="Choix",
-       key="Critere 3"
-     )
- # Critere 4
+    Population_selected = st.selectbox(
+        "Tu préfère la tranquillité ?",
+        ("Oui", "Peu importe"),
+        index=None,
+        placeholder="Choix",
+        key="Critere 3"
+    )
+
+# Filtrage des données selon Population
+if Population_selected == "Oui":
+    data = data[data["population_2019"] <= 500000]
+    data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","jour_soleil_an","relief","total_poi_tourist","nom"])
+elif Population_selected == "Peu importe":
+    data = data[data["population_2019"] > 500000]
+    data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","jour_soleil_an","relief","total_poi_tourist","nom"])
+
+# Critère 4
 with col4:
-     critere_4 = st.selectbox(
-       "",
-       ("Email", "Home phone", "Mobile phone"),
-       index=None,
-       placeholder="Choix",
-       key="Critere 4"
-     )
- # Critere 2
-with col5:
-     critere_5 = st.selectbox(
-       "",
-       ("Email", "Home phone", "Mobile phone"),
-       index=None,
-       placeholder="Choix",
-       key="Critere 5"
-     )
- # Critere 1
-with col6:
-     critere_6 = st.selectbox(
-       "",
-       ("Email", "Home phone", "Mobile phone"),
-       index=None,
-       placeholder="Choix",
-       key="Critere 6"
+    Relief_selected = st.selectbox(
+        "En terme de relief ?",
+        ("Mer", "Montagne", "Plaine"),
+        index=None,
+        placeholder="Choix",
+        key="Critere 4"
+    )
+
+# Filtrage des données selon Relief
+if Relief_selected == "Mer":
+    data = data[data['relief'] == 'Mer']
+elif Relief_selected == "Montagne":
+    data = data[data['relief'] == 'Montagne']
+elif Relief_selected == "Plaine":
+    data = data[data['relief'] == 'Plaine']
+
+# Calcul du score final
+data["score_final"] = data["prix_moyen_m²_2021"] + data["nb_second_home_2018"]
+
+# Sélectionner le TOP 10 basé sur le score
+top_10 = data.nlargest(10, 'score_final')
+
+# Réinitialisation de l'index pour le tableau
+top_10 = top_10.reset_index(drop=True).reset_index()
+top_10['index'] += 1
+top_10 = top_10.set_index('index')
+
+# Fusionner les données avec le GeoDataFrame
+geojson_data = geojson_data.merge(top_10, left_on='id', right_on='code')
+
+# Créer la carte choropleth
+fig_map = px.choropleth_mapbox(
+    geojson_data,
+    geojson="departements.geojson",
+    locations="code",
+    featureidkey="properties.id",
+    color="score_final",
+    color_continuous_scale="Viridis",
+    mapbox_style="carto-positron",
+    center={"lat": 46.603354, "lon": 1.888334},
+    zoom=5,
+    title="Top 10 des Départements"
 )
- # Mapping
-#geodata = gpd.read_file('data_geo/departements.geojson')
-#df_geo = pd.merge(geodata, top_10, left_on='code', right_on='department_code', how='inner')
-#df_geo = df_geo.drop(['code', 'nom'], axis=1)
 
-# Création d'une map "choropleth", elle affichera les 10 départements selectionnés.
-       #fig = px.choropleth_mapbox(df_geo, 
-                               #geojson=df_geo.geometry, 
-                               #locations=df_geo.index,  
-                               #mapbox_style="carto-positron", 
-                               #hover_name='department_name',
-                               #color= "colorank",  
-                               #color_discrete_map=color_dict, 
-                               #center={ "lat": 46.8, "lon": 1.8}, 
-                               #custom_data=['department_name', 'geographie'], 
-                               #zoom=4.2, 
-                               #opacity=0.9) 
-                                
+st.plotly_chart(fig_map)
 
-       #fig.update_traces(
-       #hovertemplate=
-           #"<b>%{customdata[0]}</b><br>Relief: %{customdata[1]}"
-       #)
+# Tableau top 10
+st.header("Top 10 Départements")
+st.dataframe(top_10[["code", "nom", "prix_moyen_m²_2021"]])
 
-       #fig.update_layout(margin={"r": 0, "t": 10, "l": 0, "b": 0}, showlegend=False, legend_itemwidth=35, width=650)
-       #col1.plotly_chart(fig, use_container_width=True)
+# Graphique Scatter
+fig_scatter = px.scatter(
+    top_10,
+    x="prix_moyen_m²_2021",
+    y="total_poi_tourist",
+    text="nom",
+    title="Total POI vs Prix Moyen du m²",
+    labels={"prix_moyen_m²_2021": "Prix Moyen du m²", "total_poi_tourist": "Total POI Touristique"}
+)
+fig_scatter.update_traces(textposition='top center')
+st.plotly_chart(fig_scatter)
 
-
-
-# Graph tableau
-    #with col2: 
-
-            #top_10["avg_sales_maison"] = top_10["avg_sales_maison"].round(decimals=0)
-            #top_10["avg_sales_maison"] = top_10["avg_sales_maison"].astype(int)
-            #top_10["avg_sales_appt"] = top_10["avg_sales_appt"].round(decimals=0)
-            #top_10["avg_sales_appt"] = top_10["avg_sales_appt"].astype(int)
-
-            #def add_euro_symbol(value):
-                #return f"{value} €"
-
-            #top_10["avg_sales_maison"] = top_10["avg_sales_maison"].map(add_euro_symbol)
-            #top_10["avg_sales_appt"] = top_10["avg_sales_appt"].map(add_euro_symbol)
-
-            #top_10_renamed = top_10[["department_code", "department_name", "avg_sales_maison", "avg_sales_appt"]].rename(
-                    #columns={"department_code": "Numéros", "department_name": "Départements", "avg_sales_maison":"Prix moyen d'une maison",
-                             #"avg_sales_appt":"Prix moyen d'un appart"})
-
-           # top_10_no_index = top_10_renamed.reset_index(drop=True)
-           # table_html = top_10_no_index.to_html(index=False)
-
-            #style_css = """
-                #<style>
-               # th {
-                   # background-color: #E1DCCA; 
-               # }
-               # th:nth-child(1) {
-                #text-align: center; 
-                #  }
-                #th:nth-child(2) {
-                #text-align: center;
-                #}
-               # }
-               # th:nth-child(3) {
-                #text-align: center;
-               # }
-                #}
-                #th:nth-child(4) {
-                #text-align: center;
-                #}
-                #td {
-                #text-align: center; 
-                #}
-                #</style>
-            #"""
- 
-
-
-
-
+# Graphique Bar
+fig_bar = px.bar(
+    top_10,
+    x="nom",
+    y="nb_second_home_2018",
+    title="Nombre de Résidences Secondaires par Département",
+    labels={"nb_second_home_2018": "Nombre de Résidences Secondaires"}
+)
+mean_value = top_10["nb_second_home_2018"].mean()
+fig_bar.add_shape(
+    type="line",
+    x0=-0.5, x1=len(top_10)-0.5,
+    y0=mean_value, y1=mean_value,
+    line=dict(color="Red", width=2, dash="dash")
+)
+st.plotly_chart(fig_bar)
