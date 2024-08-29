@@ -176,11 +176,11 @@ fig = px.choropleth_mapbox(df_geo,
                            geojson=df_geo.geometry,
                            locations=df_geo.index,
                            mapbox_style="carto-positron",
-                           hover_name='nom_y',
+                           hover_name='nom',
                            color="colorank",
                            color_discrete_map=color_dict,
                            center={"lat": 46.8, "lon": 1.8},
-                           custom_data=['nom_y'],
+                           custom_data=['nom'],
                            zoom=4.2,
                            opacity=0.9)
 
