@@ -119,3 +119,12 @@ header[data-testid="stHeader"] svg { /* Pour les icônes */
     background: #ffffff; /* Exemple de couleur blanche */
 }
 
+ .gdg-bg-cell {
+    background-color: #ffffff; /* Exemple pour changer la couleur de fond des cellules */
+}
+
+.gdg-bg-header {
+    background-color: #f0f0f0; /* Exemple pour changer la couleur de fond des en-têtes */
+}
+
+
