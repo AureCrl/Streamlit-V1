@@ -135,6 +135,10 @@ header[data-testid="stHeader"] svg { /* Pour les icônes */
     margin: 0px;
     line-height: 1.2;
 }
+ .gdg-element {
+    background-color: rgb(255, 0, 0) !important; /* Couleur de fond rouge */
+    color: rgb(255, 255, 255) !important; /* Couleur du texte blanc */
+}
 
   /*Couleur titre prix m²*/
  h3 {
