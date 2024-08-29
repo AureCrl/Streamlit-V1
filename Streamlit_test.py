@@ -8,6 +8,110 @@ data = pd.read_csv("New_merged_df_streamlit.csv")
 # Assurez-vous que le code est bien un entier
 data['code'] = data['code'].astype(int)
 
+# Backend
+st.set_page_config(layout="wide", initial_sidebar_state='expanded')
+
+# Logo - Titre
+image = "https://i.goopics.net/an3xxk.png"
+image_2 = "https://d26jy9fbi4q9wx.cloudfront.net/assets/logo-ae2beeecce25d711f577b08deb9adfc6c02b673ed106b8d6c3da0f1721d9da33.svg"
+container = st.container()
+container.markdown(
+    f'''
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+        <img src="{image}" style="width: 200px; margin-right: 10px; margin-bottom: 8px;">
+        <h1 style="color: #113f60; margin: 0;">La résidence secondaire à prix accessible !</h1>
+        <img src="{image_2}" style="width: 100px; margin-right: 10px; margin-bottom: 20px;">
+    </div>
+    ''',
+    unsafe_allow_html=True
+)
+
+# La GROSSE BARRE
+st.markdown(
+ """
+    <div style="height: 4px; background-color: #113f60;width: 100%; margin-top: 20px;"></div>
+    """,
+    unsafe_allow_html=True)
+
+# Création des variables pour les critères
+POI_selected = False
+Sun_selected = False
+Population_selected = False
+Relief_selected = False
+
+# Création des colonnes pour les selectbox
+col1, col2, col3, col4 = st.columns([1, 1, 1, 1])
+
+# Critère POI
+with col1:
+    POI_selected = st.selectbox(
+        "Une envie de visiter des lieux touristiques ?",
+        ("Oui!", "Vite fait", "Pas envie"),
+        index=None,
+        placeholder="Choix",
+        key="Critere 1"
+    )
+
+# Filtrage des données selon POI
+if POI_selected == "Oui!":
+    data = data[data["total_poi_tourist"] >= 500]
+elif POI_selected == "Vite fait":
+    data = data[data["total_poi_tourist"] >= 250]
+elif POI_selected == "Pas envie":
+    data = data[data["total_poi_tourist"] < 250]
+
+# Critère Soleil
+with col2:
+    Sun_selected = st.selectbox(
+        "Et le soleil ?",
+        ("J'en veux !", "Pourquoi pas", "Le moins possible"),
+        index=None,
+        placeholder="Choix",
+        key="Critere 2"
+    )
+
+# Filtrage des données selon Sun
+if Sun_selected == "J'en veux !":
+    data = data[data["jour_soleil_an"] >= 180]
+elif Sun_selected == "Pourquoi pas":
+    data = data[data["jour_soleil_an"] >= 135]
+elif Sun_selected == "Le moins possible":
+    data = data[data["jour_soleil_an"] < 135]
+
+# Critère Population
+with col3:
+    Population_selected = st.selectbox(
+        "Tu préfères la tranquillité ?",
+        ("Oui", "Peu importe"),
+        index=None,
+        placeholder="Choix",
+        key="Critere 3"
+    )
+
+# Filtrage des données selon Population
+if Population_selected == "Oui":
+    data = data[data["population_2019"] <= 2000000]
+elif Population_selected == "Peu importe":
+    data = data[data["population_2019"] > 1000000]
+
+# Critère Relief
+with col4:
+    Relief_selected = st.selectbox(
+        "En termes de relief ?",
+        ("Mer", "Montagne", "Plaine"),
+        index=None,
+        placeholder="Choix",
+        key="Critere 4"
+    )
+
+# Filtrage des données selon Relief
+if Relief_selected == "Mer":
+    data = data[data['relief'] == 'Mer']
+elif Relief_selected == "Montagne":
+    data = data[data['relief'] == 'Montagne']
+elif Relief_selected == "Plaine":
+    data = data[data['relief'] == 'Plaine']
+
 # Calcul du score final
 data["score_final"] = data["prix_moyen_m²_2021"] + data["total_nb_second_home"]
 
@@ -26,7 +130,7 @@ top_10_renamed = top_10.rename(columns={
     "prix_moyen_m²_2021": "Prix Moyen au m² en 2021"
 })
 
-# Créer deux colonnes
+# Créer deux colonnes pour le tableau et le graphique scatter
 col1, col2 = st.columns([1, 1])
 
 # Afficher le tableau dans la première colonne
@@ -49,7 +153,7 @@ with col2:
     fig_scatter.update_traces(textposition='top center')
     st.plotly_chart(fig_scatter)
 
-# Si besoin d'ajouter le graphique bar plus bas dans la page
+# Afficher un graphique en barres plus bas dans la page
 st.subheader("Nombre de Résidences Secondaires par Département")
 fig_bar = px.bar(
     top_10,
