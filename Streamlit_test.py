@@ -14,6 +14,8 @@ geojson_data = gpd.read_file("departements.geojson")
 data['code'] = data['code'].astype(str)
 geojson_data['code'] = geojson_data['code'].astype(str)
 
+geojson_data = geojson_data.set_index('code').join(data.set_index('code'), how='inner')
+
 # Backend
 st.set_page_config(layout="wide", initial_sidebar_state='expanded')
 with open('style.css') as f:
