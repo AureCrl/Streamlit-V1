@@ -41,11 +41,17 @@ body {
     width: 100%;
     margin-top: 10px;
 }
-
+/*Taile et marge pour les titres des picker*/
  .st-emotion-cache-1whx7iy p {
     word-break: break-word;
     margin-bottom: 0px;
     font-size: 22px;
+}
+ p, ol, ul, dl {
+    margin: 0px 0px 1rem;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 400;
 }
 
  
