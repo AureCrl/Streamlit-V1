@@ -103,9 +103,20 @@ header[data-testid="stHeader"] svg { /* Pour les icônes */
     background: rgb(207, 214, 219) !important;
 }
 
- .st-emotion-cache-1qg05tj {
+ /* Couleur des titres des pickers */
+  .st-emotion-cache-1qg05tj {
     font-size: 14px;
-    color: !important#113f60;
+    color: rgb(73 33 33);
+    display: flex;
+    visibility: visible;
+    margin-bottom: 0.25rem;
+    height: auto;
+    min-height: 1.5rem;
+    vertical-align: middle;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+}
 
 /* Style pour espacer les selectboxes des barres */
 .selectbox-container {
