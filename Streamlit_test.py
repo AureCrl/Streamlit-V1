@@ -126,7 +126,7 @@ data["score_final"] = data["prix_moyen_m²_2021"] + data["nb_second_home_2018"]
 top_10 = data.nsmallest(10, 'score_final')
 
 # Réinitialisation de l'index pour le tableau
-top_10 = top_10.reset_index(drop=True)
+top_10 = top_10.reset_index(drop=True).reset_index
 top_10['index'] += 1
 top_10 = top_10.set_index('index')
 
