@@ -173,8 +173,8 @@ geojson_data = pd.merge(geodata, top_10, left_on='code', right_on='code', how='i
 geojson_data = geojson_data.drop(['code', 'nom_x'], axis=1)
 geojson_data['colorank'] = geojson_data['prix_moyen_m²_2021'].rank(ascending=True)
 fig = px.choropleth_mapbox(geojson_data,
-                           geojson=df_geo.geometry,
-                           locations=df_geo.index,
+                           geojson=geojson_data.geometry,
+                           locations=geojson_data.index,
                            mapbox_style="carto-positron",
                            hover_name='nom',
                            color="colorank",
