@@ -39,14 +39,13 @@ st.markdown(
     unsafe_allow_html=True)
 
 # Création des variables pour les critères
-POI_selected = False
-Sun_selected = False
-Population_selected = False
-Relief_selected = False
+POI_selected = None
+Sun_selected = None
+Population_selected = None
+Relief_selected = None
 
 # Création des colonnes pour les selectbox
 col1, col2, col3, col4 = st.columns([1, 1, 1, 1])
-
 
 # Critère 1
 with col1:
@@ -58,17 +57,6 @@ with col1:
         key="Critere 1"
     )
 
-# Filtrage des données selon POI
-if POI_selected == "Oui!":
-    data = data[data["total_poi_tourist"] >= 500]
-    data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","population_2019","relief","jour_soleil_an","nom"])
-elif POI_selected == "Vite fait":
-    data = data[data["total_poi_tourist"] >= 250]
-    data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","population_2019","relief","jour_soleil_an","nom"])
-elif POI_selected == "Pas envie":
-    data = data[data["total_poi_tourist"] < 250]
-    data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","population_2019","relief","jour_soleil_an","nom"])
-
 # Critère 2
 with col2:
     Sun_selected = st.selectbox(
@@ -78,17 +66,6 @@ with col2:
         placeholder="Choix",
         key="Critere 2"
     )
-
-# Filtrage des données selon Sun
-if Sun_selected == "J'en veut !":
-    data = data[data["jour_soleil_an"] >= 180]
-    data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","population_2019","relief","total_poi_tourist","nom"])
-elif Sun_selected == "Pourquoi pas":
-    data = data[data["jour_soleil_an"] >= 135]
-    data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","population_2019","relief","total_poi_tourist","nom"])
-elif Sun_selected == "Le moins possible":
-    data = data[data["jour_soleil_an"] < 135]
-    data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","population_2019","relief","total_poi_tourist","nom"])
 
 # Critère 3
 with col3:
@@ -100,14 +77,6 @@ with col3:
         key="Critere 3"
     )
 
-# Filtrage des données selon Population
-if Population_selected == "Oui":
-    data = data[data["population_2019"] <= 500000]
-    data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","jour_soleil_an","relief","total_poi_tourist","nom"])
-elif Population_selected == "Peu importe":
-    data = data[data["population_2019"] > 500000]
-    data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","jour_soleil_an","relief","total_poi_tourist","nom"])
-
 # Critère 4
 with col4:
     Relief_selected = st.selectbox(
@@ -118,54 +87,89 @@ with col4:
         key="Critere 4"
     )
 
-# Filtrage des données selon Relief
-if Relief_selected == "Mer":
-    data = data[data['relief'] == 'Mer']
-elif Relief_selected == "Montagne":
-    data = data[data['relief'] == 'Montagne']
-elif Relief_selected == "Plaine":
-    data = data[data['relief'] == 'Plaine']
+# Assurer que tous les critères sont sélectionnés avant de filtrer et d'afficher les graphiques
+if POI_selected and Sun_selected and Population_selected and Relief_selected:
+    # Filtrage des données selon POI
+    if POI_selected == "Oui!":
+        data = data[data["total_poi_tourist"] >= 500]
+        data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","population_2019","relief","jour_soleil_an","nom"])
+    elif POI_selected == "Vite fait":
+        data = data[data["total_poi_tourist"] >= 250]
+        data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","population_2019","relief","jour_soleil_an","nom"])
+    elif POI_selected == "Pas envie":
+        data = data[data["total_poi_tourist"] < 250]
+        data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","population_2019","relief","jour_soleil_an","nom"])
 
-# Calcul du score final
-data["score_final"] = data["prix_moyen_m²_2021"] + data["nb_second_home_2018"]
+    # Filtrage des données selon Sun
+    if Sun_selected == "J'en veut !":
+        data = data[data["jour_soleil_an"] >= 180]
+        data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","population_2019","relief","total_poi_tourist","nom"])
+    elif Sun_selected == "Pourquoi pas":
+        data = data[data["jour_soleil_an"] >= 135]
+        data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","population_2019","relief","total_poi_tourist","nom"])
+    elif Sun_selected == "Le moins possible":
+        data = data[data["jour_soleil_an"] < 135]
+        data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","population_2019","relief","total_poi_tourist","nom"])
 
-# Sélectionner le TOP 10 basé sur le score
-top_10 = data.nlargest(10, 'score_final')
+    # Filtrage des données selon Population
+    if Population_selected == "Oui":
+        data = data[data["population_2019"] <= 500000]
+        data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","jour_soleil_an","relief","total_poi_tourist","nom"])
+    elif Population_selected == "Peu importe":
+        data = data[data["population_2019"] > 500000]
+        data = data.drop(columns=["code","prix_moyen_m²_2021","nb_vacants_housing_2018","nb_second_home_2018","jour_soleil_an","relief","total_poi_tourist","nom"])
 
-# Réinitialisation de l'index pour le tableau
-top_10 = top_10.reset_index(drop=True).reset_index()
-top_10['index'] += 1
-top_10 = top_10.set_index('index')
+    # Filtrage des données selon Relief
+    if Relief_selected == "Mer":
+        data = data[data['relief'] == 'Mer']
+    elif Relief_selected == "Montagne":
+        data = data[data['relief'] == 'Montagne']
+    elif Relief_selected == "Plaine":
+        data = data[data['relief'] == 'Plaine']
 
-# Tableau top 10
-st.header("Top 10 Départements")
-st.dataframe(top_10[["code", "nom", "prix_moyen_m²_2021"]])
+    # Calcul du score final
+    data["score_final"] = data["prix_moyen_m²_2021"] + data["nb_second_home_2018"]
 
-# Graphique Scatter
-fig_scatter = px.scatter(
-    top_10,
-    x="prix_moyen_m²_2021",
-    y="total_poi_tourist",
-    text="nom",
-    title="Total POI vs Prix Moyen du m²",
-    labels={"prix_moyen_m²_2021": "Prix Moyen du m²", "total_poi_tourist": "Total POI Touristique"}
-)
-fig_scatter.update_traces(textposition='top center')
-st.plotly_chart(fig_scatter)
+    # Sélectionner le TOP 10 basé sur le score
+    top_10 = data.nlargest(10, 'score_final')
 
-# Graphique Bar
-fig_bar = px.bar(
-    top_10,
-    x="nom",
-    y="nb_second_home_2018",
-    title="Nombre de Résidences Secondaires par Département",
-    labels={"nb_second_home_2018": "Nombre de Résidences Secondaires"}
-)
-mean_value = top_10["nb_second_home_2018"].mean()
-fig_bar.add_shape(
-    type="line",
-    x0=-0.5, x1=len(top_10)-0.5,
-    y0=mean_value, y1=mean_value,
-    line=dict(color="Red", width=2, dash="dash")
-)
-st.plotly_chart(fig_bar)
+    # Réinitialisation de l'index pour le tableau
+    top_10 = top_10.reset_index(drop=True).reset_index()
+    top_10['index'] += 1
+    top_10 = top_10.set_index('index')
+
+    # Afficher le tableau Top 10
+    st.header("Top 10 Départements")
+    st.dataframe(top_10[["code", "nom", "prix_moyen_m²_2021"]])
+
+    # Graphique Scatter
+    fig_scatter = px.scatter(
+        top_10,
+        x="prix_moyen_m²_2021",
+        y="total_poi_tourist",
+        text="nom",
+        title="Total POI vs Prix Moyen du m²",
+        labels={"prix_moyen_m²_2021": "Prix Moyen du m²", "total_poi_tourist": "Total POI Touristique"}
+    )
+    fig_scatter.update_traces(textposition='top center')
+    st.plotly_chart(fig_scatter)
+
+    # Graphique Bar
+    fig_bar = px.bar(
+        top_10,
+        x="nom",
+        y="nb_second_home_2018",
+        title="Nombre de Résidences Secondaires par Département",
+        labels={"nb_second_home_2018": "Nombre de Résidences Secondaires"}
+    )
+    mean_value = top_10["nb_second_home_2018"].mean()
+    fig_bar.add_shape(
+        type="line",
+        x0=-0.5, x1=len(top_10)-0.5,
+        y0=mean_value, y1=mean_value,
+        line=dict(color="Red", width=2, dash="dash")
+    )
+    st.plotly_chart(fig_bar)
+
+else:
+    st.info("Veuillez sélectionner toutes les options pour afficher les graphi
