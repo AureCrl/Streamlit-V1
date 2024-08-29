@@ -47,6 +47,9 @@ Relief_selected = False
 # Création des colonnes pour les selectbox
 col1, col2, col3, col4 = st.columns([1, 1, 1, 1])
 
+# Assurer que tous les critères sont sélectionnés avant de filtrer et d'afficher les graphiques
+if POI_selected and Sun_selected and Population_selected and Relief_selected:
+
 # Critère 1
 with col1:
     POI_selected = st.selectbox(
