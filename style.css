@@ -106,10 +106,10 @@ header[data-testid="stHeader"] svg { /* Pour les icônes */
  /* Couleur des titres des pickers */
   .st-emotion-cache-1qg05tj {
     font-size: 14px;
-    color: rgb(73 33 33);
+    color: rgb(17 63 96);
     display: flex;
     visibility: visible;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.50rem;
     height: auto;
     min-height: 1.5rem;
     vertical-align: middle;
