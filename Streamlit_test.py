@@ -136,23 +136,35 @@ top_10 = top_10.reset_index(drop=True).reset_index()
 top_10['index'] += 1
 top_10 = top_10.set_index('index')
 
-# Fusionner les données avec le GeoDataFrame
-geojson_data = geojson_data.merge(top_10, left_on='id', right_on='code')
+# Tableau top 10
+st.header("Top 10 Départements")
+st.dataframe(top_10[["code", "nom", "prix_moyen_m²_2021"]])
 
-# Créer la carte choropleth
-fig = px.choropleth_mapbox(df_geo,
-                           geojson=df_geo.geometry,
-                           locations=df_geo.index,
-                           mapbox_style="carto-positron",
-                           hover_name='nom',
-                           color="colorank",
-                           color_discrete_map=color_dict,
-                           center={"lat": 46.8, "lon": 1.8},
-                           custom_data=['nom_y'],
-                           zoom=4.2,
-                           opacity=0.9)
+# Graphique Scatter
+fig_scatter = px.scatter(
+    top_10,
+    x="prix_moyen_m²_2021",
+    y="total_poi_tourist",
+    text="nom",
+    title="Total POI vs Prix Moyen du m²",
+    labels={"prix_moyen_m²_2021": "Prix Moyen du m²", "total_poi_tourist": "Total POI Touristique"}
+)
+fig_scatter.update_traces(textposition='top center')
+st.plotly_chart(fig_scatter)
 
-
-fig.show()
-
-
+# Graphique Bar
+fig_bar = px.bar(
+    top_10,
+    x="nom",
+    y="nb_second_home_2018",
+    title="Nombre de Résidences Secondaires par Département",
+    labels={"nb_second_home_2018": "Nombre de Résidences Secondaires"}
+)
+mean_value = top_10["nb_second_home_2018"].mean()
+fig_bar.add_shape(
+    type="line",
+    x0=-0.5, x1=len(top_10)-0.5,
+    y0=mean_value, y1=mean_value,
+    line=dict(color="Red", width=2, dash="dash")
+)
+st.plotly_chart(fig_bar)
