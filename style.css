@@ -105,8 +105,8 @@ header[data-testid="stHeader"] svg { /* Pour les icônes */
 
  /* Couleur des titres des pickers */
   .st-emotion-cache-1qg05tj {
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 18px !important;
+    font-weight: bold !important;
     color: rgb(17 63 96);
     display: flex;
     visibility: visible;
@@ -128,21 +128,6 @@ header[data-testid="stHeader"] svg { /* Pour les icônes */
 /* Style pour les titres des critères */
 .criteres-title {
     margin-bottom: 10px !important; /* Ajuste cet espace selon tes besoins */
-}
-
- .st-emotion-cache-13k62yr {
-    background: rgb(14, 17, 23) !important; /* Couleur actuelle de fond */
-    /* Modifiez la couleur de fond comme ceci */
-    background: #ffffff !important; /* Exemple de couleur blanche */
-}
-
- .gdg-bg-cell {
-    background-color: #ffffff !important; /* Exemple pour changer la couleur de fond des cellules */
-}
-
-.gdg-bg-header {
-    background-color: #f0f0f0 !important; /* Exemple pour changer la couleur de fond des en-têtes */
-}
 
  /*Couleur top 10*/
  h2 {
