@@ -11,7 +11,7 @@ import plotly.graph_objects as go
 data = pd.read_csv("New_merged_df_streamlit.csv")
 geojson_data = gpd.read_file("departements.geojson")
 
-
+data['code'] = data['code'].astype(int)
 
 # Backend
 st.set_page_config(layout="wide", initial_sidebar_state='expanded')
@@ -172,6 +172,7 @@ color_dict = {
     1: 'blue', 2: 'green', 3: 'purple', 4: 'red', 5: 'orange',
     6: 'yellow', 7: 'pink', 8: 'cyan', 9: 'magenta', 10: 'brown'
 }
+
 
 df_geo = pd.merge(geojson_data, top_10, left_on='code', right_on='code', how='inner')
 df_geo = df_geo.drop(['code', 'nom_geo'], axis=1)
