@@ -169,10 +169,10 @@ color_dict = {
     1: 'blue', 2: 'green', 3: 'purple', 4: 'red', 5: 'orange',
     6: 'yellow', 7: 'pink', 8: 'cyan', 9: 'magenta', 10: 'brown'
 }
-df_geo = pd.merge(geodata, top_10, left_on='code', right_on='code', how='inner')
-df_geo = df_geo.drop(['code', 'nom_x'], axis=1)
-df_geo['colorank'] = df_geo['prix_moyen_m²_2021'].rank(ascending=True)
-fig = px.choropleth_mapbox(df_geo,
+geojson_data = pd.merge(geodata, top_10, left_on='code', right_on='code', how='inner')
+geojson_data = geojson_data.drop(['code', 'nom_x'], axis=1)
+geojson_data['colorank'] = geojson_data['prix_moyen_m²_2021'].rank(ascending=True)
+fig = px.choropleth_mapbox(geojson_data,
                            geojson=df_geo.geometry,
                            locations=df_geo.index,
                            mapbox_style="carto-positron",
