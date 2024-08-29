@@ -140,7 +140,7 @@ with col1:
 
 # Créer le graphique scatter et l'afficher dans la deuxième colonne
 with col2:
-    st.subheader("Total POI vs Prix Moyen du m²")
+    st.subheader("En 2021 le prix moyen du m² tout départements confondu était de 3000€")
     fig_scatter = px.scatter(
         top_10,
         x="prix_moyen_m²_2021",
