@@ -97,7 +97,7 @@ with col3:
 if Population_selected == "Oui":
     data = data[data["population_2019"] <= 2000000]
 elif Population_selected == "Peu importe":
-    data = data[data["population_2019"] => 1000000]
+    data = data[data["population_2019"] > 1000000]
 
 # Critère 4
 with col4:
