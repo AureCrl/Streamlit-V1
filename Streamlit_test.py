@@ -150,7 +150,7 @@ with col2:
         title="Total POI vs Prix Moyen du m²",
         labels={"prix_moyen_m²_2021": "Prix Moyen du m²", "total_poi_tourist": "Total POI Touristique"},
         size="total_nb_second_home",
-        size_max=60  
+        size_max=40  
     )
     fig_scatter.update_traces(textposition='top center')
     st.plotly_chart(fig_scatter)
