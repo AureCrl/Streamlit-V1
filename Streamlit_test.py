@@ -176,6 +176,7 @@ color_dict = {
 geojson_data = pd.merge(geojson_data, top_10, left_on='code', right_on='code', how='inner')
 geojson_data = geojson_data.drop(['code', 'nom_geo'], axis=1)
 geojson_data['colorank'] = geojson_data['prix_moyen_m²_2021'].rank(ascending=True)
+geojson_data["geometry"] = geojson_data["geometry"].apply(lambda x : x.__geo_interface__)
 fig = px.choropleth_mapbox(geojson_data,
                            geojson=geojson_data.geometry,
                            locations=geojson_data.index,
