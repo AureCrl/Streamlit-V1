@@ -11,8 +11,8 @@ import plotly.graph_objects as go
 data = pd.read_csv("merged_df_streamlit.csv")
 geojson_data = gpd.read_file("departements.geojson")
 
-data['code'] = data['code'].astype(str)
-geojson_data['code'] = geojson_data['code'].astype(str)
+data['code'] = data['code'].astype(int)
+geojson_data['code'] = geojson_data['code'].astype(int)
 
 # Backend
 st.set_page_config(layout="wide", initial_sidebar_state='expanded')
