@@ -5,6 +5,14 @@ import plotly.express as px
 # Chargement des données
 data = pd.read_csv("New_merged_df_streamlit.csv")
 
+def load_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
+# Charger votre CSS
+load_css("style.css")
+
+
 # Assurez-vous que le code est bien un entier
 data['code'] = data['code'].astype(int)
 
