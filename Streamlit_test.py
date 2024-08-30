@@ -35,18 +35,6 @@ st.markdown(
     unsafe_allow_html=True)
 
 
-# Mettre du gras sur le titre des pickers
-st.markdown(
-    """
-    <style>
-    .stSelectbox label {
-        font-weight: bold;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
 # Création des variables pour les critères
 POI_selected = False
 Sun_selected = False
@@ -136,6 +124,18 @@ elif Relief_selected == "Montagne":
     data = data[data['relief'] == 'Montagne']
 elif Relief_selected == "Plaine":
     data = data[data['relief'] == 'Plaine']
+
+# Mettre du gras sur le titre des pickers
+st.markdown(
+    """
+    <style>
+    .stSelectbox label {
+        font-weight: bold;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # Calcul du score final
 data["score_final"] = data["prix_moyen_m²_2021"] + data["total_nb_second_home"]
