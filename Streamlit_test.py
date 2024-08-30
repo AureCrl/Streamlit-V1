@@ -34,6 +34,19 @@ st.markdown(
     """,
     unsafe_allow_html=True)
 
+
+# Mettre du gras sur le titre des pickers
+st.markdown(
+    """
+    <style>
+    .stSelectbox label {
+        font-weight: bold;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # Création des variables pour les critères
 POI_selected = False
 Sun_selected = False
