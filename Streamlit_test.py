@@ -43,6 +43,17 @@ Relief_selected = False
 # Création des colonnes pour les selectbox
 col1, col2, col3, col4 = st.columns([1, 1, 1, 1])
 
+st.markdown(
+    """
+    <style>
+    .stSelectbox { margin-top: 20px; margin-bottom: 20px; }
+    h2, h3 { margin-top: 40px; margin-bottom: 40px; }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+
 # Critère POI
 with col1:
     POI_selected = st.selectbox(
