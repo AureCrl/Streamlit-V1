@@ -139,7 +139,7 @@ header[data-testid="stHeader"] svg { /* Pour les icônes */
 
 /* Style pour espacer les selectboxes des barres */
 .selectbox-container {
-    margin-top: 80px !important; margin-bottom: 3.50rem;/* Ajuste cet espace selon tes besoins */
+    margin-top: 80px !important; margin-bottom: 3.50rem !important;/* Ajuste cet espace selon tes besoins */
 }
  
   /*Couleur top 10*/
