@@ -18,7 +18,7 @@ container = st.container()
 container.markdown(
     f'''
     <div style="display: flex; align-items: center; justify-content: space-between;">
-        <img src="{image}" style="width: 200px; margin-right: 10px; margin-bottom: 8px;">
+        <img src="{image}" style="width: 200px; margin-right: 10px; margin-bottom: 8px; margin-top: 10px;">
         <h1 style="color: #113f60; margin: 0;">La résidence secondaire à prix accessible !</h1>
         <img src="{image_2}" style="width: 100px; margin-right: 10px; margin-bottom: 20px;">
     </div>
