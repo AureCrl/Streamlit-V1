@@ -60,7 +60,7 @@ body {
 
 /* Modifier la couleur du contour et de fond de la selectbox */
 [data-testid="stSelectbox"] > div {
-    border: 2px solid #113f60 !important; /* Contour en couleur avec !important */
+    border: 2px solid #113f60 ; /* Contour en couleur avec !important */
     border-radius: 4px; /* Bords légèrement arrondis, optionnel */
     background-color: #f6f4ee !important; /* Couleur de fond en blanc avec !important */
     color: #113f60 !important; /* Couleur du texte avec !important */
@@ -99,7 +99,7 @@ header[data-testid="stHeader"] svg { /* Pour les icônes */
  .st-cf {
     color: rgb(0 0 0 / 60%);
 }
-/* couleur de la borude */
+/* couleur de la bordure */
  [data-testid="stSelectbox"] > div {
     border: 2px solid #ffffff !important;
     border-radius: 4px;
@@ -139,7 +139,7 @@ header[data-testid="stHeader"] svg { /* Pour les icônes */
 
 /* Style pour espacer les selectboxes des barres */
 .selectbox-container {
-    margin-top: 80px !important;/* Ajuste cet espace selon tes besoins */
+    margin-top: 80px !important; margin-bottom: 3.50rem;/* Ajuste cet espace selon tes besoins */
 }
  
   /*Couleur top 10*/
