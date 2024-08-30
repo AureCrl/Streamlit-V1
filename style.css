@@ -149,7 +149,7 @@ header[data-testid="stHeader"] svg { /* Pour les icônes */
     color: #113f60 !important;
     letter-spacing: -0.005em;
     padding: 1rem 0px;
-    margin: 0px;
+    margin: 40px;
     line-height: 1.2;
 }
 
@@ -160,6 +160,6 @@ header[data-testid="stHeader"] svg { /* Pour les icônes */
     color: rgb(17 63 96) !important;
     letter-spacing: -0.005em;
     padding: 0.5rem 0px 1rem;
-    margin: 0px;
+    margin: 40px;
     line-height: 1.2;
  
