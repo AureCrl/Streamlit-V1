@@ -46,6 +46,7 @@ body {
     word-break: break-word;
     margin-bottom: 0px;
     font-size: 22px;
+    font-weight: bold;
 }
  p, ol, ul, dl {
     margin: 20px 20px 1rem;
