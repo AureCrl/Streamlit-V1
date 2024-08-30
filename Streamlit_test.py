@@ -47,7 +47,7 @@ st.markdown(
     """
     <style>
     .stSelectbox { margin-top: 20px; margin-bottom: 20px; }
-    h2, h3 { margin-top: 40px; margin-bottom: 40px; }
+    h2, h3 { margin-top: 20px; margin-bottom: 20px; }
     </style>
     """,
     unsafe_allow_html=True
