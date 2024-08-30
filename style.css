@@ -56,6 +56,10 @@ body {
     padding-bottom: 30px; /* Ajout du padding-bottom */
 }
 
+.stSelectbox label {
+    font-weight: bold;
+}
+
  
 
 /* Modifier la couleur du contour et de fond de la selectbox */
