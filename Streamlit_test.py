@@ -57,7 +57,7 @@ st.markdown(
 # Critère POI
 with col1:
     POI_selected = st.selectbox(
-        <strong>"Une envie de visiter des lieux touristiques ?"</strong>,
+        "Une envie de visiter des lieux touristiques ?",
         ("Oui!", "Vite fait", "Pas envie"),
         index=None,
         placeholder="Choix",
