@@ -124,7 +124,7 @@ header[data-testid="stHeader"] svg { /* Pour les icônes */
     color: rgb(17 63 96);
     display: flex;
     visibility: visible;
-    margin-bottom: 3.50rem;
+    margin-bottom: 0.50rem;
     margin-top: 1.50rem;
     height: auto;
     min-height: 1.5rem;
@@ -132,6 +132,7 @@ header[data-testid="stHeader"] svg { /* Pour les icônes */
     flex-direction: row;
     -webkit-box-align: center;
     align-items: center;
+    padding-bottom: 20px;
 }
 
 /* Style pour espacer les selectboxes des barres */
