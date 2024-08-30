@@ -46,8 +46,8 @@ col1, col2, col3, col4 = st.columns([1, 1, 1, 1])
 st.markdown(
     """
     <style>
-    .stSelectbox { margin-top: 20px; margin-bottom: 20px; }
-    h2, h3 { margin-top: 20px; margin-bottom: 20px; }
+    .stSelectbox { ;margin-top: 20px; margin-bottom: 20px; }
+    h2, h3 { margin-top: 20px; margin-bottom: 20px;font-weight: bold;}
     </style>
     """,
     unsafe_allow_html=True
